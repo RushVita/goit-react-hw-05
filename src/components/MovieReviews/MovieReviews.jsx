@@ -17,7 +17,7 @@ export default function MovieReviews() {
             <ThreeDots color="#cc5801" />
           </div>
         )}
-        {data?.results.length ? (
+        {data?.results.length > 0 &&
           data?.results.map((review) => {
             return (
               <li key={review.id} className={css.item}>
@@ -27,8 +27,8 @@ export default function MovieReviews() {
                 <p>{review.content}</p>
               </li>
             );
-          })
-        ) : (
+          })}
+        {data?.results.length === 0 && (
           <li>
             <p>Sorry we don`t have reviews for htis movie</p>
           </li>
@@ -38,4 +38,3 @@ export default function MovieReviews() {
     </>
   );
 }
-
