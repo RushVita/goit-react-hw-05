@@ -1,0 +1,28 @@
+.wrapLink {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .title_desc {
+    font-weight: 800;
+  }
+  
+  .btn_back {
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+  
+    text-decoration: none;
+    background-color: transparent;
+    border: 1px solid rgb(100, 13, 13);
+    border-radius: 5px;
+    color: black;
+  
+    transition: color 0.2s;
+  
+    &:hover {
+      color: orangered;
+      text-decoration: underline;
+    }
+  }
+  
