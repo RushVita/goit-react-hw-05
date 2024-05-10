@@ -25,7 +25,7 @@ export default function MovieCast() {
             </li>
           );
         })}
-      {error && <div>Sorry Error😔</div>}
+      {error && <div>Sorry Erorr😔</div>}
     </ul>
   );
 }

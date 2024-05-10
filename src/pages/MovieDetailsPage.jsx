@@ -1,27 +1,24 @@
-import { useParams, Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
-import css from "./MovieDetailsPage.module.css"; 
+import css from "./MovieDetailsPage.module.css";
 import { fetchByIdDetails } from "../articles-api";
 import { useFetchData } from "../useFetchData";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const location = useLocation();
-  const navigate = useNavigate();
+  const ref = location.state ?? "/movies";
 
   const { data, isLoad, error } = useFetchData(fetchByIdDetails, movieId);
 
   return (
     <div>
       <h1>MovieDetailsPage</h1>
-      <button
-        onClick={() => {
-          navigate(-1);
-        }}
-        className={css.btn_back}
-      >
-        Go Back
-      </button>
+      
+        <Link className={css.btn_back} to={ref}>
+          Go Back
+        </Link>
+     
 
       {data !== null && (
         <div>
@@ -44,20 +41,17 @@ export default function MovieDetailsPage() {
           </p>
         </div>
       )}
-
       {isLoad && (
         <div>
           <ThreeDots color="#cc5801" />
         </div>
       )}
-
       {error && <div>Ops Error😔 Please try again!</div>}
-
       <div className={css.wrapLink}>
-        <Link to={"cast"} state={location}>
+        <Link to={"cast"} state={location.state}>
           Cast
         </Link>
-        <Link to={"reviews"} state={location}>
+        <Link to={"reviews"} state={location.state}>
           Reviews
         </Link>
       </div>

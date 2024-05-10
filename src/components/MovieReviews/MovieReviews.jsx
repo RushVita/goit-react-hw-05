@@ -30,11 +30,11 @@ export default function MovieReviews() {
           })}
         {data?.results.length === 0 && (
           <li>
-            <p>Sorry we don`t have reviews for htis movie</p>
+            <p>Sorry we don`t have reviews for this movie</p>
           </li>
         )}
       </ul>
-      {error && <div>Sorry Erorr😔</div>}
+      {error && <div>Sorry Error😔</div>}
     </>
   );
 }
